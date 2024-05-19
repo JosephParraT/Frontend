@@ -1,30 +1,42 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
-  <router-view/>
+  <div id="app">
+    <header>
+      <h1>Sistema de Gestión de Reservas para Hoteles Boutique</h1>
+    </header>
+    <nav>
+      <router-link to="/">Inicio</router-link>
+      <router-link to="/habitaciones">Habitaciones</router-link>
+      <router-link to="/reservas">Reservas</router-link>
+      <!-- Agrega más enlaces de navegación según sea necesario -->
+    </nav>
+    <router-view></router-view>
+  </div>
 </template>
 
+<script>
+export default {
+  name: 'App',
+};
+</script>
+
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+/* Estilos para el encabezado y la navegación */
+header, nav {
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
 }
 
-nav {
-  padding: 30px;
+header h1 {
+  margin: 0;
 }
 
 nav a {
-  font-weight: bold;
-  color: #2c3e50;
+  color: #fff;
+  margin-right: 10px;
 }
 
-nav a.router-link-exact-active {
-  color: #42b983;
+nav a:hover {
+  text-decoration: underline;
 }
 </style>
