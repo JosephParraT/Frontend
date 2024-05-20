@@ -10,12 +10,25 @@
       <!-- Agrega más enlaces de navegación según sea necesario -->
     </nav>
     <router-view></router-view>
+    <!-- Condición para mostrar AgregarHabitacion solo en la página de lista de habitaciones -->
+    <AgregarHabitacion v-if="esPaginaDeHabitaciones" />
   </div>
 </template>
 
 <script>
+import AgregarHabitacion from './components/AgregarHabitacion.vue';
+
 export default {
   name: 'App',
+  components: {
+    AgregarHabitacion
+  },
+  computed: {
+    esPaginaDeHabitaciones() {
+      // Verifica si la ruta actual coincide con la página de lista de habitaciones
+      return this.$route.path === '/habitaciones';
+    }
+  }
 };
 </script>
 

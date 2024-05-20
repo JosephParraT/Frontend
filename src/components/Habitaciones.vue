@@ -10,6 +10,8 @@
 </template>
 
 <script>
+import axios from 'axios';
+
 export default {
   data() {
     return {
@@ -18,7 +20,14 @@ export default {
   },
   mounted() {
     // Aquí puedes hacer una llamada a la API para obtener la lista de habitaciones
-    // Por ejemplo, utilizando Axios: axios.get('/api/habitaciones').then(response => { this.habitaciones = response.data; });
+    // Por ejemplo, utilizando Axios:
+    axios.get('/api/habitaciones')
+      .then(response => {
+        this.habitaciones = response.data;
+      })
+      .catch(error => {
+        console.error('Error al obtener las habitaciones:', error);
+      });
   }
 };
 </script>
